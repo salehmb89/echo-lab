@@ -1,9 +1,12 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const menuButton = document.querySelector('#hamburger-menu');
-    const sidebarMenu = document.querySelector('#sidebar-menu');
+document.getElementById('hamburger-menu').addEventListener('click', toggleSidebar);
+document.querySelector('.overlay').addEventListener('click', toggleSidebar);
 
-    menuButton.addEventListener('click', function () {
-        sidebarMenu.classList.toggle('active');
-    });
-});
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar-menu');
+  const overlay = document.querySelector('.overlay');
+  
+  const isOpen = sidebar.style.left === "0px";
 
+  sidebar.style.left = isOpen ? "-250px" : "0";
+  overlay.style.display = isOpen ? 'none' : 'block';
+}
